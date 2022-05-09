@@ -1,11 +1,15 @@
 // ==UserScript==
 // @name         Synology Notes UI
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.3
 // @description  Make Synology Notes UI look similar to Notion
-// @author       Justin
+// @author       Justin Kelly
 // @include      https://*/?launchApp=SYNO.SDS.NoteStation.Application*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=quickconnect.to
+// @icon         https://global.download.synology.com/download/Package/img/NoteStation/2.6.1-2450/thumb_256.png
+// @namespace    https://justin.kelly.org.au
+// @supportURL   https://github.com/justinkelly/Synology-Notes-UI-update-tampermonkey
+// @downloadURL	 https://gist.github.com/justinkelly/95e7ea152be9ffc149cfd435b4714d65/raw/Synology_Notes_UI.user.js
+// @updateURL	https://gist.github.com/justinkelly/95e7ea152be9ffc149cfd435b4714d65/raw/Synology_Notes_UI.user.js
 // @grant        none
 // ==/UserScript==
 
@@ -28,26 +32,28 @@ function GM_addStyle(css) {
 GM_addStyle("body {font-size: 14px;}");
 GM_addStyle("body {font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';}");
 
+
+//misc
 GM_addStyle(".syno-ns-win .x-tree-node .x-tree-selected {background: rgba(55, 53, 47, 0.08) none repeat scroll 0% 0%;");
-GM_addStyle("div.x-tree-selected {color: rgb(55, 53, 47);")
-GM_addStyle(".syno-ns-note-snippet-thumbnail{display:none;}");
+
+
 GM_addStyle(".sds-window-v5 .x-layout-split.x-layout-split-west {border-right-width: 0px;}");
-//GM_addStyle(".syno-ns-note-container-panel {background: rgba(55, 53, 47, 0.08)}");
 GM_addStyle(".syno-ns-note-container-panel {border-right-width: 1px;border-right-color: rgba(198,212,224,0.7);}");
 GM_addStyle(".x-layout-split-west {background: rgba(55, 53, 47, 0.08)}");
 
+//remove snippet/date in list
+GM_addStyle(".syno-ns-note-snippet-thumbnail{display:none;}");
+
 
 //top menu bar
-//GM_addStyle(".syno-ns-win .x-window-tl {background: rgb(247, 246, 243)}");
 GM_addStyle(".syno-ns-win .x-window-tl {background: #edebe9}");
 
 //search bar
 GM_addStyle("#ext-gen79 {background:#f3f2f1}");
 
 //tree background
-//GM_addStyle("div.syno-ux-treepanel {background: rgb(247, 246, 243) none repeat scroll 0% 0%;}");
 GM_addStyle("div.syno-ux-treepanel {background: #f3f2f1;}");
-//tree bvorder right
+//tree border right
 GM_addStyle("#ext-comp-1022 {border-right: 1px solid #edebe9;}");
 //tree icons
 GM_addStyle(".syno-ns-win .x-tree-node .x-tree-node-el .x-tree-node-icon { opacity: 0.7; }");
@@ -59,6 +65,7 @@ GM_addStyle(".syno-ux-treepanel .x-tree-root-ct .x-tree-node-ct a span {color: r
 GM_addStyle(".syno-ns-win .x-tree-node .x-tree-selected .syno-ns-notebook-title {font-weight: 600; color: rgb(55, 53, 47);}");
 GM_addStyle(".syno-ns-win .x-tree-node .x-tree-selected .syno-ns-notebook-total {font-weight: 600; color: rgb(55, 53, 47);}");
 GM_addStyle(".syno-ns-win .x-tree-node .x-tree-selected .x-tree-node-icon {background-position: 0px 0px;}");
+GM_addStyle("div.x-tree-selected {color: rgb(55, 53, 47);")
 
 //main white section
 GM_addStyle("#ext-comp-1233 {border-top: 1px solid #edebe9; padding-top: 4px;}");
